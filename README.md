@@ -15,7 +15,7 @@ Minimal Next.js starter with Auth.js, Prisma, and shadcn-style UI components.
 
 1. Install dependencies.
 2. Copy `.env.example` to `.env`.
-3. Set `DATABASE_URL`, `AUTH_SECRET`, `GOOGLE_CLIENT_ID`, and `GOOGLE_CLIENT_SECRET`.
+3. Set `DATABASE_URL`, `AUTH_SECRET`, `AUTH_GOOGLE_ID`, and `AUTH_GOOGLE_SECRET`.
 4. Run `pnpm prisma db push`.
 5. Start the dev server with `pnpm dev`.
 
