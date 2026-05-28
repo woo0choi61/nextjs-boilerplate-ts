@@ -6,6 +6,7 @@ import { db } from "@/lib/db"
 
 const googleClientId = process.env.AUTH_GOOGLE_ID
 const googleClientSecret = process.env.AUTH_GOOGLE_SECRET
+const authSecret = process.env.AUTH_SECRET ?? googleClientSecret
 
 if (!googleClientId || !googleClientSecret) {
   throw new Error("AUTH_GOOGLE_ID and AUTH_GOOGLE_SECRET are required")
@@ -13,6 +14,8 @@ if (!googleClientId || !googleClientSecret) {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(db as never),
+  secret: authSecret,
+  trustHost: true,
   providers: [
     Google({
       clientId: googleClientId,
