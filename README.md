@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# next.js boilerplate
+
+Minimal Next.js starter with Auth.js, Prisma, and shadcn-style UI components.
+
+## Stack
+
+- Next.js App Router
+- TypeScript strict mode
+- Tailwind CSS v4
+- Auth.js v5 with Google OAuth
+- Prisma + PostgreSQL
+- Base UI / shadcn-style components
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies.
+2. Copy `.env.example` to `.env`.
+3. Set `DATABASE_URL`, `AUTH_SECRET`, `GOOGLE_CLIENT_ID`, and `GOOGLE_CLIENT_SECRET`.
+4. Run `pnpm prisma db push`.
+5. Start the dev server with `pnpm dev`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Auth Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Google sign-in starts at `/login`.
+- Auth.js callbacks use `/api/auth/callback/google`.
+- The auth configuration lives in [`lib/auth.ts`](./lib/auth.ts).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [`app/`](./app) - application routes
+- [`components/ui/`](./components/ui) - UI primitives
+- [`lib/`](./lib) - shared helpers and auth setup
+- [`prisma/schema.prisma`](./prisma/schema.prisma) - Prisma schema
+- [`proxy.ts`](./proxy.ts) - route protection proxy
 
-## Learn More
+## Notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- If you change the Prisma schema, run `pnpm prisma generate`.
+- If Google sign-in fails, confirm the OAuth redirect URI in Google Cloud Console matches your local or deployed URL.
