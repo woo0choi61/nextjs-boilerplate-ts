@@ -43,3 +43,5 @@ next-env.d.ts
 # local config and docs
 /$HOME/
 /docs/
+AGENTS.md
+CLAUDE.md
