@@ -1,5 +1,5 @@
 // lib/db.ts
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "../node_modules/.prisma/client/index"
 import { PrismaNeon } from "@prisma/adapter-neon"
 
 const connectionString = process.env.DATABASE_URL
