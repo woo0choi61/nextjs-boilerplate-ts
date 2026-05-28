@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(Test-Path \"AGENTS.md\")",
+      "Bash(Test-Path \"CLAUDE.md\")",
+      "Bash(Test-Path \"docs/superpowers/plans/2026-05-28-nextjs-boilerplate.md\")",
+      "Bash(npx next *)",
+      "Bash(node -e \"const pkg = require\\('./package.json'\\); console.log\\('next-auth:', pkg.dependencies['next-auth']\\); console.log\\('zod:', pkg.dependencies['zod']\\); console.log\\('@prisma/client:', pkg.dependencies['@prisma/client']\\); console.log\\('prisma:', pkg.devDependencies['prisma']\\);\")",
+      "Bash(node -e \"const lock = require\\('./package-lock.json'\\); const zod = lock.packages['node_modules/zod']; console.log\\('zod resolved version:', zod && zod.version\\);\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const fs=require\\('fs'\\); console.log\\(fs.readFileSync\\('.env','utf8'\\)\\);\")"
+    ]
+  }
+}
