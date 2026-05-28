@@ -8,3 +8,7 @@ allowBuilds:
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+minimumReleaseAgeExclude:
+  - electron-to-chromium@1.5.363
+  - eventsource-parser@3.1.0
+  - shadcn@4.8.2
